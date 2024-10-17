@@ -1,0 +1,32 @@
+.search {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+
+    &__filter {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        width: 100%;
+        padding: 20px 30px;
+
+        input {
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+        
+    }
+    
+    &__counter {
+        background-color: rgb(0, 52, 129);
+        padding: 5px 10px;
+        border-radius: 20%;
+        color: white;
+        font-weight: bold;
+        font-size: 1rem;
+        margin-right: 10px;
+    }
+
+
+}
