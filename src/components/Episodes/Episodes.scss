@@ -1,0 +1,38 @@
+.episodes {
+
+    &__episodes__number {
+        box-shadow: 0px 5px 6px 0px grey;
+        border-radius: 3px;
+        padding: 10px 20px;
+        text-align: left;
+        font-size: 1rem;
+        font-weight: bold;
+        color: rgb(0, 114, 129);
+        margin-bottom: 30px;
+    }
+
+    &__episodes__container {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        box-shadow: 0px 5px 6px 0px grey;
+        border-radius: 3px;
+        padding: 10px 20px;
+
+    }
+
+    &__episodes__title {
+        width: 60%;
+    }
+
+    thead th {
+        padding-bottom: 10px;
+    }
+
+    td {
+        padding: 10px 0 ;
+        border-top: solid 1px grey;
+    }
+
+}
+
