@@ -3,12 +3,21 @@
     flex-direction: column;
 
     &__title {
+        box-sizing: border-box;
         align-items: flex-start;
         text-align: left;
         border-bottom:  2px solid grey;
+        padding: 10px 0;
     }
     h1 {
         color: rgb(0, 52, 129);
+    }
+
+    a {
+        text-decoration: none;
+        font-size: 30px;
+        color:rgb(0, 52, 129);
+        font-weight: bold;
     }
 }
 
