@@ -1,19 +1,29 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../Store/store";
+import { TPodcast } from "../Models/TPodcast";
 
 type detailsAlbumState = {
-    detailsAlbum: any
+    detailsAlbum: TPodcast
 }
 
 const initialState: detailsAlbumState = {
-    detailsAlbum: {}
+    detailsAlbum: {
+        albumData: {
+            name: '',
+            src: '',
+            author: '',
+            description: '',
+            podcastId: '',
+        },
+        listOfEpisodes: []
+    }
 }
 
 const podcastDetailsSlice = createSlice({
     name: 'detailsAlbum',
     initialState,
     reducers: {
-        addDetails: (state, action: PayloadAction<any>) => {
+        addDetails: (state, action: PayloadAction<TPodcast>) => {
             state.detailsAlbum = action.payload
         }
     }

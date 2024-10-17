@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../Store/store";
+import { TPoster } from "../Models/TPodcast";
 
 type PodcastState = {
-    podcastsList: any[]
+    podcastsList: TPoster[]
 }
 
 const initialState: PodcastState = {
@@ -13,7 +14,7 @@ const podcastSlice = createSlice({
     name: 'podcasts',
     initialState,
     reducers: {
-        addPodcasts: (state, action: PayloadAction<any[]>) => {
+        addPodcasts: (state, action: PayloadAction<TPoster[]>) => {
             state.podcastsList = action.payload
         },
 

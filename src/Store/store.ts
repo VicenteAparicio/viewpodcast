@@ -1,11 +1,13 @@
 // import { configureStore } from "@reduxjs/toolkit";
 import { configureStore } from '@reduxjs/toolkit';
-import podcasts from '../Features/podcast.slice';
-import details from '../Features/podcastDetails.slice';
+import podcastsReducer from '../Features/podcast.slice';
+import detailsReducer from '../Features/podcastDetails.slice';
+import filterReducer from '../Features/filter.slice';
 const Store = configureStore({
     reducer: {
-        podcasts,
-        details
+        podcasts: podcastsReducer,
+        details: detailsReducer,
+        filter: filterReducer
     }
 })
 
