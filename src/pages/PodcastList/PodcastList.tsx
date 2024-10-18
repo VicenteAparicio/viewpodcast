@@ -9,6 +9,7 @@ import { RootState } from "../../Store/store";
 import Search from "../../components/Search/Search";
 import { TPoster } from "../../Models/TPodcast";
 import { converterToPosterModel } from "../../utils/converter";
+import { getCachedPodcasts, setCachedPodcasts } from "../../utils/cache";
 
 const BASE_CLASS = "listing"
 
@@ -32,28 +33,33 @@ const PodcastList = () => {
     
     useEffect(()=> {
         filterPodcasts();
-    },[searchFilter])
+    },[searchFilter, podcastsList])
 
+    const fetchPodcastList = async () => {
+        let podcastFormated: TPoster[] | null;
+        podcastFormated = getCachedPodcasts('podcasts');
+
+        if (!podcastFormated) {
+            const rawPodcastList = await fetchAllPodcasts();
+            podcastFormated = converterToPosterModel(rawPodcastList);
+            setCachedPodcasts('podcasts', podcastFormated);
+        }
+
+        setFilteredPodcasts(podcastFormated);
+        
+        dispatch(addPodcasts(podcastFormated));
+    }
 
     const filterPodcasts = () => {
         const filteredPodcasts = podcastsList.filter(podcast => 
             podcast.name.toLowerCase().includes(searchFilter.toLowerCase()) ||
             podcast.author.toLowerCase().includes(searchFilter.toLowerCase())
-        )
+        );
 
         setFilteredPodcasts(filteredPodcasts)
     }
     
-    const fetchPodcastList = async () => {
-        const rawPodcastList = await fetchAllPodcasts();
 
-        console.log(rawPodcastList)
-
-        const podcastFormated = converterToPosterModel(rawPodcastList);
-        if(searchFilter === '') setFilteredPodcasts(podcastFormated)
-
-        dispatch(addPodcasts(podcastFormated))
-    }
  
 
     return (
@@ -64,7 +70,6 @@ const PodcastList = () => {
                 Poster(podcast)
             )}
             </div>
-            
         </div>
     )
 }
