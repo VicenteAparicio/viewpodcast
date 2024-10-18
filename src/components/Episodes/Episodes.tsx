@@ -27,7 +27,7 @@ const Episode = () => {
                     </thead>
                     <tbody>
                         {detailsAlbum.listOfEpisodes && detailsAlbum.listOfEpisodes.map((episode: TEpisode) =>
-                            <tr key={episode.title} className={BASE_CLASS + '__rows'}>
+                            <tr key={episode.id} className={BASE_CLASS + '__rows'}>
                                 <td>
                                     <Link 
                                         to={`/podcast/${detailsAlbum.albumData.podcastId}/episode/${episode.title.match(/\d+/)}`}>

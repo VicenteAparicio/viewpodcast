@@ -1,9 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Album from "../../components/Album/Album";
 import Episodes from "../../components/Episodes/Episodes";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import { RootState } from "../../Store/store";
 import { fetchAlbum } from "../../api/podcast.api";
 import { converterToPodcast } from "../../utils/converter";
 import { addDetails } from "../../Features/podcastDetails.slice";
@@ -21,9 +20,9 @@ const Podcast = () => {
     },[podcastId])
 
     const fetchDetails = async (podcastId: string) => {
-        const rawAlbum = await fetchAlbum(Number(podcastId))
-        const albumFormated: TPodcast = converterToPodcast(rawAlbum)
-        dispatch(addDetails(albumFormated))
+        const rawAlbum = await fetchAlbum(Number(podcastId));
+        const albumFormated: TPodcast = converterToPodcast(rawAlbum);
+        dispatch(addDetails(albumFormated));
     }
 
 
