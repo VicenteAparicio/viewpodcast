@@ -17,7 +17,7 @@ export const fetchAllPodcasts = async () => {
 
 export const fetchAlbum = async (podcastId: number) => {
     try {
-        return (await axios.get(CORS_ANYWHERE + URL_ALBUM + podcastId
+        return (await axios.get(URL_ALBUM + podcastId
              + '&media=podcast&entity=podcastEpisode'
             )).data.results;
 
