@@ -10,6 +10,7 @@ import Search from "../../components/Search/Search";
 import { TPoster } from "../../Models/TPodcast";
 import { converterToPosterModel } from "../../utils/converter";
 import { getCachedPodcasts, setCachedPodcasts } from "../../utils/cache";
+import { setLoading } from "../../Features/loader.slice";
 
 const BASE_CLASS = "listing"
 
@@ -44,10 +45,13 @@ const PodcastList = () => {
             podcastFormated = converterToPosterModel(rawPodcastList);
             setCachedPodcasts('podcasts', podcastFormated);
         }
-
+        
+        dispatch(setLoading(false));
         setFilteredPodcasts(podcastFormated);
         
         dispatch(addPodcasts(podcastFormated));
+
+
     }
 
     const filterPodcasts = () => {

@@ -1,13 +1,17 @@
 .header {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    border-bottom:  2px solid grey;
 
     &__title {
         box-sizing: border-box;
         align-items: flex-start;
         text-align: left;
-        border-bottom:  2px solid grey;
+
         padding: 10px 0;
+        width: 100%;
     }
     h1 {
         color: rgb(0, 52, 129);

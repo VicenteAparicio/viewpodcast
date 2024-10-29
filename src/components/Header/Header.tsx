@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+import Loader from "../Loader/Loader";
 
-const BASE_CLASS = "header"
+const BASE_CLASS = "header";
 
 const Header = () => {
     return (
@@ -8,6 +9,7 @@ const Header = () => {
             <div className={BASE_CLASS + "__title"}>
                 <Link to=''>Podcaster</Link>
             </div>
+            <Loader />
         </header>
     )
 }

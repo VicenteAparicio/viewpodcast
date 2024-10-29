@@ -7,6 +7,7 @@ import { fetchAlbum } from "../../api/podcast.api";
 import { converterToPodcast } from "../../utils/converter";
 import { addDetails } from "../../Features/podcastDetails.slice";
 import { TPodcast } from "../../Models/TPodcast";
+import { setLoading } from "../../Features/loader.slice";
 
 const BASE_CLASS = "podcast"
 
@@ -16,6 +17,7 @@ const Podcast = () => {
     const { podcastId } = useParams<string>();
 
     useEffect(() => {
+        dispatch(setLoading(true));
         fetchDetails(String(podcastId))
     },[podcastId])
 
@@ -23,6 +25,7 @@ const Podcast = () => {
         const rawAlbum = await fetchAlbum(Number(podcastId));
         const albumFormated: TPodcast = converterToPodcast(rawAlbum);
         dispatch(addDetails(albumFormated));
+        dispatch(setLoading(false));
     }
 
 
