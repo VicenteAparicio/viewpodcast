@@ -15,6 +15,7 @@ export type TEpisode = {
     date: string;
     duration: number;
     description: string;
+    url: string
 }
 
 export type TPodcast = {

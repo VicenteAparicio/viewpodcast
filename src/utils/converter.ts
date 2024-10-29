@@ -25,7 +25,8 @@ export const converterToPodcast = (rawModel: any[]): TPodcast => {
             title: rawEpisode.trackName,
             duration: rawEpisode.trackTimeMillis,
             date: rawEpisode.releaseDate,
-            description: rawEpisode.shortDdescription
+            description: rawEpisode.shortDescription,
+            url: rawEpisode.episodeUrl
         }))
     }
 }
